@@ -80,6 +80,7 @@
             android:padding="6dp"
             tools:listitem="@layout/list_item"
             android:importantForAccessibility="no"
+            android:clipToPadding="false"
             app:listData="@{viewModel.photos}"/>
 
         <ImageView
@@ -90,6 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_bar"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@null"
             app:marsApiStatus="@{viewModel.status}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
