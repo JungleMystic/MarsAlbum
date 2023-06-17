@@ -17,21 +17,27 @@ class PhotosViewModel: ViewModel() {
     private val _photos = MutableLiveData<List<MarsPhoto>>()
     val photos: LiveData<List<MarsPhoto>> = _photos
 
+    private val _listSize = MutableLiveData<String>()
+    val listSize: LiveData<String> = _listSize
+
     init {
         getMarsPhotos()
     }
 
     fun getMarsPhotos() {
+        _listSize.value = ""
+
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
                 _photos.value = MarsApi.retrofitService.getPhotos()
-
+                _listSize.value = "${_photos.value!!.size}"
                 _status.value = MarsApiStatus.DONE
             }
             catch (e: Exception) {
                 _status.value = MarsApiStatus.ERROR
                 _photos.value = listOf()
+                _listSize.value = ""
             }
         }
     }

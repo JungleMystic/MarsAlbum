@@ -52,6 +52,19 @@
                         app:layout_constraintBottom_toBottomOf="@id/app_icon"
                         android:layout_marginStart="20dp"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.listSize}"
+                        tools:text="588"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toStartOf="@id/refresh"
+                        app:layout_constraintTop_toTopOf="@id/app_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/app_icon"
+                        android:layout_marginEnd="20dp"/>
+
                     <ImageView
                         android:id="@+id/refresh"
                         android:layout_width="30dp"
