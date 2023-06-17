@@ -33,6 +33,10 @@ class PhotosFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
+        binding.refresh.setOnClickListener {
+            viewModel.getMarsPhotos()
+        }
+
         binding.rvPhotos.adapter = PhotoAdapter()
     }
 
